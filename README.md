@@ -1,0 +1,56 @@
+# Finance CRM
+
+A loan-management / CRM platform, organized as a monorepo with a TypeScript
+NestJS backend and a React (TanStack) frontend.
+
+## Structure
+
+```
+.
+├── backend/     # Bun workspace — NestJS services + shared libraries
+│   ├── core-api/           # Primary REST API (auth, leads, CAM, loans, collections…)
+│   ├── integrations-api/   # Third-party vendor integrations (KYC, bureau, SMS, email, UPI)
+│   ├── reporting-api/      # Reports & exports
+│   ├── automation-worker/  # Cron / background jobs
+│   ├── common/             # Shared NestJS library (@finance-crm/common)
+│   ├── database/           # TypeORM entities + SQL migrations (@finance-crm/database)
+│   └── gateway/            # nginx reverse-proxy config
+└── frontend/    # Bun workspace — Vite + React + TanStack Router
+    ├── core-crm/      # CRM web app
+    ├── crm-redesign/  # Redesigned CRM web app
+    ├── common/        # Shared frontend utilities
+    └── pdf/           # PDF generation helpers
+```
+
+## Getting started
+
+Both `backend/` and `frontend/` are independent Bun workspaces.
+
+```bash
+# Backend
+cd backend
+cp .env.example .env      # fill in your own values
+bun install
+bun run typecheck
+
+# Frontend
+cd frontend
+cp core-crm/.env.example core-crm/.env.local
+bun install
+bun run dev
+```
+
+## Configuration & secrets
+
+No secrets are committed to this repository. Every service reads configuration
+from environment variables (see each `.env.example`). In deployed environments,
+configuration can additionally be sourced from AWS Secrets Manager / SSM
+Parameter Store (see `backend/docs/DEPLOYMENT.md`).
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## License
+
+[MIT](./LICENSE)
