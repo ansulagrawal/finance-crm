@@ -1,0 +1,27 @@
+{
+  "name": "finance-crm-backend",
+  "version": "0.0.1",
+  "private": true,
+  "license": "UNLICENSED",
+  "workspaces": [
+    "database",
+    "common",
+    "core-api",
+    "integrations-api",
+    "automation-worker",
+    "reporting-api"
+  ],
+  "scripts": {
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check --write .",
+    "typecheck": "for d in database common core-api integrations-api automation-worker reporting-api; do (cd \"$d\" && bun run typecheck) || exit 1; done",
+    "prepare": "husky",
+    "test": "for d in common core-api integrations-api automation-worker reporting-api; do (cd \"$d\" && bun run test) || exit 1; done"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
+    "husky": "^9.1.7",
+    "typescript": "^5.7.3"
+  }
+}
