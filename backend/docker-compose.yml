@@ -1,0 +1,96 @@
+services:
+  mysql:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-changeme}
+      MYSQL_DATABASE: ${DB_DATABASE:-finance_crm_backend}
+      MYSQL_USER: ${DB_USERNAME:-root}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-changeme}
+    ports:
+      - '${DB_HOST_PORT:-3306}:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  core-api:
+    build:
+      context: .
+      dockerfile: core-api/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      mysql:
+        condition: service_healthy
+    expose:
+      - '3000'
+
+  integrations-api:
+    build:
+      context: .
+      dockerfile: integrations-api/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: 3001
+    depends_on:
+      mysql:
+        condition: service_healthy
+    expose:
+      - '3001'
+
+  automation-worker:
+    build:
+      context: .
+      dockerfile: automation-worker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: 3003
+      CORE_API_URL: http://core-api:3000
+      INTEGRATIONS_API_URL: http://integrations-api:3001
+      # Optional — @finance-crm/common's JobRunnerModule defaults to in-process
+      # @nestjs/schedule cron jobs and only upgrades to Redis-backed BullMQ
+      # when this is set. Leave REDIS_URL unset in .env to keep the
+      # default; override at `docker compose up` invocation time
+      # (`REDIS_URL=redis://redis:6379 docker compose up -d
+      # automation-worker`) to exercise the BullMQ path against this
+      # compose file's `redis` service.
+      REDIS_URL: ${REDIS_URL:-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    expose:
+      - '3003'
+
+  reporting-api:
+    build:
+      context: .
+      dockerfile: reporting-api/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: 3002
+    depends_on:
+      mysql:
+        condition: service_healthy
+    expose:
+      - '3002'
+
+  gateway:
+    build:
+      context: gateway
+    restart: unless-stopped
+    ports:
+      - '8080:80'
+    depends_on:
+      - core-api
+      - integrations-api
+      - reporting-api
+
+volumes:
+  mysql-data:
