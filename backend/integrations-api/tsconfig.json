@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "paths": {
+      "@finance-crm/database": ["../database/src/index.ts"],
+      "@finance-crm/database/*": ["../database/src/*"],
+      "@finance-crm/common": ["../common/src/index.ts"],
+      "@finance-crm/common/*": ["../common/src/*"]
+    }
+  }
+}
