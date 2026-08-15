@@ -1,0 +1,28 @@
+{
+  "name": "finance-crm-frontend",
+  "private": true,
+  "version": "0.0.1",
+  "workspaces": [
+    "core-crm",
+    "crm-redesign"
+  ],
+  "scripts": {
+    "dev": "cd core-crm && bun run dev",
+    "build": "cd core-crm && bun run build",
+    "preview": "cd core-crm && bun run preview",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write .",
+    "typecheck": "cd core-crm && bun run typecheck",
+    "prepare": "husky",
+    "test": "cd core-crm && bun run test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
+    "husky": "^9.1.7",
+    "typescript": "~6.0.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.26"
+  }
+}
