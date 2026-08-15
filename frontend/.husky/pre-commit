@@ -1,0 +1,5 @@
+# No `bun run format` here. It writes files, and it runs AFTER git has staged
+# them, so anything it reformats lands outside the commit you just made — you
+# end up with a follow-up "style:" commit every time. `lint` still fails the
+# commit on a real problem; run `bun run format` yourself before committing.
+bun run lint && bun run typecheck && bun run test
