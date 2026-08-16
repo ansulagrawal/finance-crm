@@ -1,0 +1,23 @@
+# Cloudflare rewrites, evaluated top to bottom (first match wins).
+#
+# SPA fallback for TanStack Router's client-side routes (e.g. deep-linking to
+# /leads/103, which has no file in the static build).
+/*  /index.html  200
+
+# NOTE: there is deliberately no `/api/*` proxy rule here.
+#
+# A `/api/*  https://api.financecrm.com/api/:splat  200` line looks right —
+# it is how Netlify proxies to an external origin — but Cloudflare does not
+# support it. A 200 rewrite may only target a path inside this project, so the
+# rule is silently ignored and the `/*` fallback below it answers instead:
+# every /api/* request returns index.html as `text/html` with status 200, and
+# a POST returns 405. Verified against the deployed site.
+#
+# The app therefore calls the API by absolute URL instead, via
+# VITE_API_BASE_URL baked in at build time (see src/lib/api.ts). That is
+# cross-origin, which is fine on both counts that matter: the API allow-lists
+# this origin, and the CRM shares the API's registrable domain so the
+# SameSite=lax/strict auth cookies are still treated as same-site.
+#
+# If you ever want a true same-origin proxy, it takes a real Worker script
+# that fetch()es the API — not a rewrite rule.
