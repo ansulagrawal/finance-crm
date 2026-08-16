@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-background: #f7f6f3;
+  --color-foreground: #16212e;
+  --color-border: #e3e0d9;
+
+  /* Finance CRM brand colors (financecrm.com --ms-bg-primary / --ms-bg-secondary) */
+  --color-primary: #011f41;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #ff7b0e;
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: #efeee9;
+  --color-muted-foreground: #5b6672;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #16794f;
+  --color-success-foreground: #ffffff;
+  --color-warning: #b3730a;
+  --color-warning-foreground: #ffffff;
+
+  --font-sans: "IBM Plex Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  --shadow-card:
+    0 1px 2px rgba(22, 33, 46, 0.04), 0 4px 16px -4px rgba(22, 33, 46, 0.08);
+  --shadow-card-hover:
+    0 2px 4px rgba(22, 33, 46, 0.06), 0 8px 24px -6px rgba(22, 33, 46, 0.12);
+
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-draw: draw 1.2s ease-out 0.2s both;
+  --animate-drift-1: drift-1 18s ease-in-out infinite;
+  --animate-drift-2: drift-2 22s ease-in-out infinite;
+  --animate-collapsible-down: collapsible-down 0.2s ease-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: var(--draw-length, 300);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drift-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.15);
+  }
+}
+
+@keyframes drift-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-35px, 35px) scale(1.1);
+  }
+}
+
+@keyframes collapsible-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+:root {
+  font: 16px / 145% var(--font-sans);
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--color-foreground);
+  background: var(--color-background);
+}
+
+.app {
+  display: flex;
+  /* A FIXED height, not min-height: with min-height the flex container grows
+     past the viewport on a long page, the document itself scrolls, and the
+     sidebar scrolls away with it. Pinning the shell to the viewport is also
+     what lets <main>'s overflow-y-auto engage at all - an unconstrained
+     child just grows to fit its content instead of scrolling inside. */
+  height: 100dvh;
+  overflow: hidden;
+}
