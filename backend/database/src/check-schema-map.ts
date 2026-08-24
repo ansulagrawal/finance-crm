@@ -12,7 +12,7 @@ import { join } from 'node:path';
 const ROOT = join(__dirname, '..', '..');
 const BASELINE = join(ROOT, 'database/legacy-baseline/legacy-schema.sql');
 const ENTITIES = join(ROOT, 'database/src/entities');
-const MAP = join(ROOT, 'docs/SCHEMA-MAP.md');
+const MAP = join(ROOT, '..', 'docs/be-schema-map.md');
 
 function allFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) =>

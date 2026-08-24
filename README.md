@@ -18,6 +18,9 @@ NestJS backend and a React (TanStack) frontend.
 └── frontend/    # Bun workspace — Vite + React + TanStack Router
     ├── core-crm/      # CRM web app
     └── crm-redesign/  # Redesigned CRM web app
+
+docs/            # all docs: be-*.md (backend) and fe-*.md (frontend)
+CLAUDE.md        # architecture & conventions for both workspaces
 ```
 
 ## Getting started
@@ -43,7 +46,7 @@ bun run dev
 No secrets are committed to this repository. Every service reads configuration
 from environment variables (see each `.env.example`). In deployed environments,
 configuration can additionally be sourced from AWS Secrets Manager / SSM
-Parameter Store (see `backend/docs/DEPLOYMENT.md`).
+Parameter Store (see `docs/be-deployment.md`).
 
 ## Contributing
 

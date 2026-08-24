@@ -1,6 +1,8 @@
 # Finance CRM — Frontend
 
-Internal CRM frontend for Finance CRM's instant paperless personal loan business. See `CLAUDE.md` for architecture and conventions.
+Internal CRM frontend for Finance CRM's instant paperless personal loan business. See the repo-root `../CLAUDE.md` for architecture and conventions.
 
-- `docs/DETAILS.md` — stack, layout, scripts, commit conventions, component library.
-- `docs/TODO.md` — task list.
+- `../docs/fe-details.md` — stack, layout, scripts, commit conventions, component library.
+- `../docs/fe-todo.md` — task list.
+- `../docs/fe-completed.md` — full history of everything already built.
+- `../docs/fe-blocked.md` — items blocked on backend/product decisions.
