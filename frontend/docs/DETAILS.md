@@ -4,11 +4,10 @@ Internal CRM frontend for Finance CRM's instant paperless personal loan business
 
 ## Layout
 
-A bun workspace with the main CRM app plus two placeholder packages for future work:
+A bun workspace with two CRM apps:
 
 - `core-crm/` — the CRM app itself (React 19 + Vite + Tailwind CSS v4 + TanStack Router/Form/Table/Virtual). See `../CLAUDE.md` for architecture and conventions.
-- `pdf/` — placeholder for a future Playwright-based PDF-rendering service. No implementation yet.
-- `common/` — placeholder for future code shared between `core-crm` and `pdf`. No implementation yet.
+- `crm-redesign/` — a redesigned CRM app on the same stack, with a tabbed lead-detail layout.
 
 ## Stack
 

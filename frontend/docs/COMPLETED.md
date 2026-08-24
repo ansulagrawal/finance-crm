@@ -70,7 +70,7 @@ dropped.
     Digilocker is a 3-step manual sequence (create-url → details →
     e-Aadhaar); eSign initiates against a signer form + downloads the
     signed doc once ready (its `documentBase64` has no in-app PDF
-    renderer yet — `pdf/` is still an unimplemented placeholder — so
+    renderer yet — there is no in-app PDF renderer — so
     it's a manual paste-in field, not automated); Video KYC is a single
     send/resend action; Face match and POI OCR both consume
     already-uploaded document URLs (confirmed URL-based, not

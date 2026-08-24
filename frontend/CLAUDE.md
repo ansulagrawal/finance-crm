@@ -19,10 +19,9 @@ Internal CRM frontend for Finance CRM's instant paperless personal loan business
 A bun workspace, all direct children of the repo root:
 
 ```
-core-crm/   # the CRM app itself (React 19 + Vite + Tailwind CSS v4 + TanStack Router/Form/Table/Virtual)
-pdf/        # placeholder for a future Playwright-based PDF-rendering service. No implementation yet.
-common/     # placeholder for future code shared between core-crm and pdf. No implementation yet.
-docs/       # TODO.md (task list), DETAILS.md (stack/scripts/component-library detail)
+core-crm/       # the CRM app itself (React 19 + Vite + Tailwind CSS v4 + TanStack Router/Form/Table/Virtual)
+crm-redesign/   # redesigned CRM app (same stack), with a tabbed lead-detail layout
+docs/           # TODO.md (task list), DETAILS.md (stack/scripts/component-library detail)
 ```
 
 All commands below run from the repo root and operate on `core-crm` (except `lint`/`format`/`check`, which cover the whole workspace since Biome already recurses).

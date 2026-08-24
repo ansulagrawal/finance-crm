@@ -762,8 +762,7 @@ function EsignCard({ lead }: { lead: Lead }) {
         eSign
       </h3>
       <p className='text-foreground/50 text-xs'>
-        No in-app document renderer exists yet (the `pdf/` package is a
-        placeholder) — paste the base64 PDF to be signed (e.g. a sanction letter
+        No in-app document renderer exists yet — paste the base64 PDF to be signed (e.g. a sanction letter
         rendered elsewhere) below.
       </p>
       <form
