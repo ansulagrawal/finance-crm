@@ -51,6 +51,14 @@ Parameter Store (see `backend/docs/DEPLOYMENT.md`).
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-## License
+## License & attribution
 
-[MIT](./LICENSE)
+Licensed under the [MIT License with an attribution requirement](./LICENSE).
+
+If you use this code — in whole or in part, modified or unmodified — you must
+give clear, visible credit to the original author:
+
+**Ansul Agrawal** — https://github.com/ansulagrawal
+
+Please keep this attribution in your project's README (or an About/credits
+screen for hosted apps).

@@ -1,6 +1,6 @@
-MIT License
+MIT License (with attribution requirement)
 
-Copyright (c) 2026 Finance CRM
+Copyright (c) 2026 Ansul Agrawal (https://github.com/ansulagrawal)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,8 +9,22 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+2. ATTRIBUTION REQUIREMENT. Any use, reproduction, or distribution of the
+   Software or of substantial portions or derivative works of it — including
+   use of the source code in another project, whether modified or unmodified —
+   must include clear, visible attribution to the original author:
+
+       Ansul Agrawal — https://github.com/ansulagrawal
+
+   For applications distributed in source form, this attribution must appear
+   in the project's README or an equivalent NOTICE/credits file. For compiled
+   or hosted applications, it must appear in a reasonably discoverable location
+   such as an "About"/credits screen or accompanying documentation. The
+   reference above (name and GitHub profile URL) must not be removed or
+   obscured.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
