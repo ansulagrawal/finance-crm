@@ -17,9 +17,7 @@ NestJS backend and a React (TanStack) frontend.
 │   └── gateway/            # nginx reverse-proxy config
 └── frontend/    # Bun workspace — Vite + React + TanStack Router
     ├── core-crm/      # CRM web app
-    ├── crm-redesign/  # Redesigned CRM web app
-    ├── common/        # Shared frontend utilities
-    └── pdf/           # PDF generation helpers
+    └── crm-redesign/  # Redesigned CRM web app
 ```
 
 ## Getting started
